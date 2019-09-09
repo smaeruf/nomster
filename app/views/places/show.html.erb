@@ -1,3 +1,5 @@
+<% if @place.latitude.present? && @place.longitude.present? %>
+
 <div class="booyah-box col-10 offset-1">
   <h1><%= @place.name %></h1>
   <i><%= @place.address %></i>
@@ -8,7 +10,7 @@
   <script>
 
     function initMap() {
-      var myLatLng = {lat: -25.363, lng: 131.044};
+      var myLatLng = {lat: 38.7948488, lng: -77.0014573};
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
@@ -25,9 +27,12 @@
 
 
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6KtsP6Av2M4gj8LCSjKJppvmzk_Lqx8A&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeueJqTFJ4dJtJ47ZjHhG-SPGL4KD4_PA&callback=initMap">
   </script>
   <div id="map"></div>
+  <% end %>
+
+  <br />
 
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
